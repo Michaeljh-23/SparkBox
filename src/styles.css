@@ -1,8 +1,36 @@
+@font-face {
+  font-family: 'sysfontc';
+  src: url('/src/webfonts/sysfont-webfont.woff2') format('woff2'),
+       url('/src/webfonts/sysfont-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body{
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  background-color: #000;
+  left: 0;
+  overflow: hidden;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  font-family: 'sysfontc';
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  height: 100vh;
+  width: 100vw;
+}
+
 h1 {
   color: rgb(97, 97, 244);
   background-color: black;
+  font-family: 'sysfontc';
+  /* font-style: italic; */
 }
-/* body{
+/* #app{
   align-items: center;
   display: flex;
   justify-content: center;
@@ -19,29 +47,10 @@ h1 {
   height: 100vh;
   width: 100vw;
 } */
-#app{
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  background-color: #000;
-  left: 0;
-  overflow: hidden;
-  padding: 10px;
-  position: fixed;
-  top: 0;
-  font-family: Chicago,sans-serif;
-  font-size: .875rem;
-  font-weight: 400;
-  line-height: 1.25rem;
-  height: 100vh;
-  width: 100vw;
-}
+
 .screen {
     background: white;
     color: rgb(0, 174, 70);
-    /* background: linear-gradient(rgba(18,16,16,0) 50%,rgba(0,0,0,.25) 50%),linear-gradient(
-      90deg
-      ,rgba(255,0,0,.06),rgba(0,255,0,.02),rgba(0,0,255,.06)); */
     box-sizing: border-box;
     border: 1px solid #000;
     border-radius: .625rem;
@@ -55,6 +64,44 @@ h1 {
     width: calc(100% - 40px);
 
 }
+
+@media (min-width: 800px) {
+  .screen {
+      box-shadow: 0 0 100px rgb(0 0 0 / 70%);
+      height: 600px;
+      width: 800px;
+  }
+}
+
+.screen::after {
+  animation: flicker .15s infinite;
+  content: " ";
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18,16,16,.08);
+  opacity: 0;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.screen::before {
+  content: " ";
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18,16,16,0) 50%,rgba(0,0,0,.25) 50%),linear-gradient(90deg,rgba(255,0,0,.06),rgba(0,255,0,.02),rgba(0,0,255,.06));
+  z-index: 10;
+  background-size: 100% 2px,3px 100%;
+  pointer-events: none;
+}
+
 div {
   display: block;
 }

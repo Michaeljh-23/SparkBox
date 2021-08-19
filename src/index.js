@@ -5,4 +5,4 @@ import "./styles.css";
 
 
 var mountNode = document.getElementById("app");
-ReactDOM.render(<App name="Blue" />, mountNode);
+ReactDOM.render(<App name="Blue and Jonah" />, mountNode);

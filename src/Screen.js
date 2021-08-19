@@ -5,7 +5,7 @@ class Screen extends React.Component {
     //const className = 'Screen'
     const { name } = this.props;
     return (
-      <div class = 'screen'>
+      <div className = 'screen'>
        <h2>Screen Views</h2>
       </div>
     );
