@@ -1,12 +1,26 @@
 import React from 'react'
 
-var Nav = () => {
+class Nav extends React.Component {
+  constructor(props) {
+    super (props)
+    this.state = {
+      dropped: false,
+    }
+  }
+  clickToDrop () {
+    $('drop').onClick(this.setState({dropped: true}))
+  }
+
+
+
+
+  render () {
   return (
   <nav className = "navbar">
     <div className = "left">
      <div className = "itemSubmenu">
        <button type="button" className = "logo"> ☰ </button>
-         <div className = "drop">
+         <div className = "drop" >
            <ul>
             <li className="about">About</li>
             <li className="toggleFullscreen">Toggle Fullscreen</li>
@@ -44,7 +58,8 @@ var Nav = () => {
 
 
   </nav>
-  );
+  )
+  }
 };
 
 export default Nav;
