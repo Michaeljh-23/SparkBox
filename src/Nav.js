@@ -8,13 +8,17 @@ class Nav extends React.Component {
     }
   }
   clickToDrop () {
-    $('drop').onClick(this.setState({dropped: true}))
+    $('drop').onClick(this.setState({dropped: !this.state.dropped}))
   }
 
 
 
 
+
   render () {
+    var style = {
+      visibility: this.state.dropped ? 'visible' : 'hidden'
+    }
   return (
   <nav className = "navbar">
     <div className = "left">
